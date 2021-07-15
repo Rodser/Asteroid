@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5538132250206435008}
   - component: {fileID: 5764303945826106829}
   - component: {fileID: 8879956431437729410}
+  - component: {fileID: 5259910518004511649}
+  - component: {fileID: 9158984882427860973}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -96,3 +98,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5259910518004511649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033678919678056930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1eeaa5ab4fc4246a3a211b0b1a81e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0.05
+--- !u!114 &9158984882427860973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033678919678056930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcab5583e2ad2649ad9320f9cddc804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  maxSpeed: 6

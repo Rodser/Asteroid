@@ -2,50 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+namespace Assets.Scripts
 {
-    [SerializeField] private float maxSpeed = 1f;
-    [SerializeField] private float speedRotatyon = 1f;
-    [SerializeField] private float acceleration = 1f;
-    [SerializeField] private Transform startProjectile;
-    [SerializeField] private GameObject projectile;
-
-    private Rigidbody playerRigidbody;
-    private Vector3 movening;
-    private float rotation;
-    private Vector3 lastPosition;
-    private Vector3 currentPosition;
-    private float invulnerabilityTime = 3f;
-
-    private void Start()
+    public class Ship : MonoBehaviour
     {
-        playerRigidbody = GetComponent<Rigidbody>();
-        lastPosition = transform.position;
-    }
+        [SerializeField] private float maxSpeed = 1f;
+        [SerializeField] private float speedRotatyon = 1f;
+        [SerializeField] private float acceleration = 1f;
 
-    private void Update()
-    {
-        currentPosition = transform.position;
-        float speed = Vector3.Distance(currentPosition, lastPosition);
-        lastPosition = currentPosition;
+        private Rigidbody playerRigidbody;
+        private Vector3 movening;
+        private float rotation;
+        private Vector3 lastPosition;
+        private Vector3 currentPosition;
+        private float invulnerabilityTime = 3f;
 
-        print(speed);
-
-        if (Input.GetAxis("Vertical") == 1)
+        private void Start()
         {
-            if (speed <= maxSpeed)
-            {
-                movening = acceleration * Time.deltaTime * transform.up;
-                playerRigidbody.AddForce(movening, ForceMode.Force);
-            }
+            playerRigidbody = GetComponent<Rigidbody>();
+            lastPosition = transform.position;
         }
 
-        rotation = Input.GetAxis("Horizontal") * -speedRotatyon;     
-        transform.Rotate(0, 0, rotation * Time.deltaTime);
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        private void Update()
         {
-            Instantiate(projectile, startProjectile.position, startProjectile.rotation);
+            currentPosition = transform.position;
+            float speed = Vector3.Distance(currentPosition, lastPosition);
+            lastPosition = currentPosition;
+
+            if (Input.GetAxis("Vertical") == 1)
+            {
+                if (speed <= maxSpeed)
+                {
+                    movening = acceleration * Time.deltaTime * transform.up;
+                    playerRigidbody.AddForce(movening, ForceMode.Force);
+                }
+            }
+
+            rotation = Input.GetAxis("Horizontal") * -speedRotatyon;
+            transform.Rotate(0, 0, rotation * Time.deltaTime);
+                        
         }
     }
 }

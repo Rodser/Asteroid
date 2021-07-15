@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8616538867114200491}
   - component: {fileID: 8149008574138432136}
   - component: {fileID: 6695765167596910741}
+  - component: {fileID: 8593953472065809946}
+  - component: {fileID: 3871185757541838650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,8 +133,34 @@ MonoBehaviour:
   maxSpeed: 0.5
   speedRotatyon: 60
   acceleration: 33
-  startProjectile: {fileID: 7215818214540455556}
+--- !u!114 &8593953472065809946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322704942210325238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67f4a099e280fc4baa61c9fd705f8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointOfShot: {fileID: 7215818214540455556}
   projectile: {fileID: 2959271955729710388, guid: 151ee307302ac174e8d63f565a204f08, type: 3}
+  rateOfFire: 3
+--- !u!114 &3871185757541838650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322704942210325238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1eeaa5ab4fc4246a3a211b0b1a81e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0.05
 --- !u!1 &356706778580590736
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7215818214540455556}
   m_Layer: 0
-  m_Name: PointProjectile
+  m_Name: PointShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

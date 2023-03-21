@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Pool;
 
-namespace Assets.Scripts
+namespace Rodlix.Asteroid
 {
     public class Asteroid : MonoBehaviour
     {

@@ -2,50 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Rodlix.Asteroid
 {
     public class StartUp : MonoBehaviour
     {
-        private List<IController> _controllers = new List<IController>();
+        [SerializeField] private Spawner _spawner;
+        [SerializeField] private DataContainer _dataContainer;
+
+        private List<IService> _services;
         private bool _isRunning = false;
-       
+
+        public Spawner Spawner => _spawner;
+
+        private void Start()
+        {
+            DIContainer.Bind(_dataContainer);
+            DIContainer.Bind(_spawner);
+
+            RegisterAllServices();
+            StartRunning();
+        }
+
         private void Update()
         {
             if (!_isRunning)
                 return;
-            TickControllers();
+            ToRun();
         }
 
         public void StartRunning()
         {
-            CreateAllControllers();
-            OnStartControllers();
+            StartServices();
             _isRunning = true;
         }
 
         public void StopRunning()
         {
-            OnStopControllers();
+            StopServices();
             _isRunning = false;
         }
 
-        private void CreateAllControllers()
+        private void RegisterAllServices()
         {
-            _controllers = new List<IController>
+            _services = new List<IService>
             {
+                new SpawnAsteroids(),
                 //new MovementController(),
                 //new EnemyDeadController(),
                 //new LoseController(),
                 //new WinController()
             };
+            // DIContainer.Bind(new SpawnAsteroids());
         }
-        private void OnStartControllers()
+
+        private void StartServices()
         {
-            foreach (IController controller in _controllers)
+            foreach (IStartService service in _services)
             {
                 try
                 {
-                    controller.OnStart();
+                    if(service is IStartService)
+                    service.OnStart();
                 }
                 catch (Exception e)
                 {
@@ -53,9 +70,10 @@ namespace Assets.Scripts
                 }
             }
         }
-        private void TickControllers()
+
+        private void ToRun()
         {
-            foreach (IController controller in _controllers)
+            foreach (IService service in _services)
             {
                 if (!_isRunning)
                 {
@@ -63,7 +81,7 @@ namespace Assets.Scripts
                 }
                 try
                 {
-                    controller.Tick();
+                    service.Tick();
                 }
                 catch (Exception e)
                 {
@@ -71,19 +89,9 @@ namespace Assets.Scripts
                 }
             }
         }
-        private void OnStopControllers()
+
+        private void StopServices()
         {
-            foreach (IController controller in _controllers)
-            {
-                try
-                {
-                    controller.OnStop();
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError(e);
-                }
-            }
         }
     }
 }

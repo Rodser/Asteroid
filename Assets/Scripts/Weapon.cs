@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Rodlix.Asteroid
 {
     public class Weapon : MonoBehaviour
     {

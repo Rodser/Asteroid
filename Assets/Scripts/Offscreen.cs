@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts
+namespace Rodlix.Asteroid
 {
     public class Offscreen : MonoBehaviour
     {

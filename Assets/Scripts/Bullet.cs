@@ -21,7 +21,7 @@ namespace Assets.Scripts
 
         private void Move()
         {
-            transform.position += transform.up * speed * Time.deltaTime;
+            transform.position += speed * Time.deltaTime * transform.up;
         }
 
         private void DisableBullet()

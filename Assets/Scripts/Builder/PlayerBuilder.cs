@@ -11,7 +11,7 @@
 
         public void OnStart()
         {
-            _playerData.Init();
+            _playerData.Build();
         }
     }
 }

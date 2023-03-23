@@ -10,7 +10,7 @@ namespace Rodlix.Asteroid
         private IServiceLocator<IService> _services;
         private IServiceLocator<IStart> _startService;
         private bool _isRunning = false;
-        private object _playerBuilder;
+        private PlayerBuilder _playerBuilder;
         private AsteroidBuilder _asteroidBuilder;
         private InputService _inputService;
 

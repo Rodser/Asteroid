@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a109419fab0be940a4a408f1e0a3140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pointShot: {fileID: 7826113140345259265}
   _maxSpeed: 5
   _speedRotation: 55
   _acceleration: 55
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1eeaa5ab4fc4246a3a211b0b1a81e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.05
+  _offset: 0.05
 --- !u!1 &356706778580590736
 GameObject:
   m_ObjectHideFlags: 0

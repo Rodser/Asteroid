@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DataContainer
   m_EditorClassIdentifier: 
   _asteroidData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
-  _weaponData: {fileID: 0}
+  _playerData: {fileID: 11400000, guid: 7a8edc1efb8c7b442a1335a30314829c, type: 2}
+  _weaponData: {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}

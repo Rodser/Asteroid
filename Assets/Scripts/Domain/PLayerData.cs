@@ -9,10 +9,9 @@ namespace Rodlix.Asteroid
         [SerializeField] private GameObject _projectile;
         [SerializeField] private int _rateOfFire = 3;
 
-        public Ship Ship => _ship;
         public Ship Player { get; private set; }
 
-        internal void Init()
+        internal void Build()
         {
             Player = Instantiate(_ship, Vector3.zero, Quaternion.identity);
         }

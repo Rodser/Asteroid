@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e123035dbe42e49b30943ec22bb340, type: 3}
   m_Name: DataContainer
   m_EditorClassIdentifier: 
-  _spawnData: {fileID: 0}
+  _asteroidData: {fileID: 0}

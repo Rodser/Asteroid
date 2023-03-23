@@ -3,7 +3,7 @@ using System;
 
 namespace Rodlix.Asteroid
 {
-    internal static class DIContainer
+    internal static class Container
     {
         private static readonly Dictionary<Type, object> _container = new();
 

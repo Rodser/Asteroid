@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bc0caaa3dbe64048ac0f656b6a785c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0469fcdfa9e10cd4b9a9564ab6cf70e9, type: 3}
   m_Name: SpawnData
   m_EditorClassIdentifier: 
-  _asteroid: {fileID: 9158984882427860973, guid: 69f1a645257f80a4994246fbef7d8d74, type: 3}
-  _countStartAsteroids: 4
+  _asteroidX: {fileID: 0}
+  _asteroidXX: {fileID: 0}
+  _asteroidXXX: {fileID: 0}
+  _countStartAsteroids: 2
   _countAsteroidsAfter: 2

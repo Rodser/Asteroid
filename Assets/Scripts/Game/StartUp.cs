@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Rodlix.Asteroid
@@ -9,15 +8,18 @@ namespace Rodlix.Asteroid
         [SerializeField] private Spawner _spawner;
         [SerializeField] private DataContainer _dataContainer;
 
-        private List<IService> _services;
+        private IServiceLocator<IService> _services;
+        private IServiceLocator<IStart> _startService;
         private bool _isRunning = false;
 
         public Spawner Spawner => _spawner;
 
         private void Start()
         {
-            DIContainer.Bind(_dataContainer);
-            DIContainer.Bind(_spawner);
+            Container.Bind(_dataContainer);
+
+            _startService = new ServiceLocator<IStart>();
+            _services = new ServiceLocator<IService>();
 
             RegisterAllServices();
             StartRunning();
@@ -38,31 +40,22 @@ namespace Rodlix.Asteroid
 
         public void StopRunning()
         {
-            StopServices();
             _isRunning = false;
         }
 
         private void RegisterAllServices()
         {
-            _services = new List<IService>
-            {
-                new SpawnAsteroids(),
-                //new MovementController(),
-                //new EnemyDeadController(),
-                //new LoseController(),
-                //new WinController()
-            };
-            // DIContainer.Bind(new SpawnAsteroids());
+            _ = _startService.Register(new SpawnAsteroids());
         }
 
         private void StartServices()
         {
-            foreach (IStartService service in _services)
+            var services = _startService.GetAll();
+            foreach (IStart service in services)
             {
                 try
                 {
-                    if(service is IStartService)
-                    service.OnStart();
+                    service?.OnStart();
                 }
                 catch (Exception e)
                 {
@@ -73,7 +66,8 @@ namespace Rodlix.Asteroid
 
         private void ToRun()
         {
-            foreach (IService service in _services)
+            var services = _services.GetAll();
+            foreach (IService service in services)
             {
                 if (!_isRunning)
                 {
@@ -81,17 +75,13 @@ namespace Rodlix.Asteroid
                 }
                 try
                 {
-                    service.Tick();
+                    service?.Tick();
                 }
                 catch (Exception e)
                 {
                     Debug.LogError(e);
                 }
             }
-        }
-
-        private void StopServices()
-        {
         }
     }
 }

@@ -5,8 +5,8 @@ namespace Rodlix.Asteroid
     [CreateAssetMenu(menuName = "Rodlix/DataContainer", fileName = "DataContainer", order = 4)]
     internal class DataContainer : ScriptableObject
     {
-        [SerializeField] private SpawnData _spawnData;
+        [SerializeField] private AsteroidData _asteroidData;
 
-        public SpawnData SpawnData => _spawnData; 
+        public AsteroidData AsteroidData => _asteroidData; 
     }
 }

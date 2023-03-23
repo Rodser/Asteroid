@@ -354,7 +354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a0bb3b47c710d4d952f0d9c02deec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
 --- !u!114 &1951467242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawner: {fileID: 1951467241}
+  _dataContainer: {fileID: 11400000, guid: e23e3123188b8db4db3ea598b50463bb, type: 2}
 --- !u!1001 &4950770125369842221
 PrefabInstance:
   m_ObjectHideFlags: 0

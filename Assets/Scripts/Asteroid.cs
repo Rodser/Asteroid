@@ -1,22 +1,17 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.Pool;
+﻿using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
     public class Asteroid : MonoBehaviour
     {
+        [SerializeField] private float _minSpeed = 2f;
+        [SerializeField] private float _maxSpeed = 6f;
 
-        [SerializeField] private float minSpeed = 2f;
-        [SerializeField] private float maxSpeed = 6f;
-
-        private Vector3 direction;
-        private float speed;
+        private float _speed;
 
         private void Start()
         {
-            direction = new Vector3(Randomaized(-1f, 1f), Randomaized(-1f, 1f), 0f);
-            speed = Randomaized(minSpeed, maxSpeed);
+            _speed = Random.Range(_minSpeed, _maxSpeed);
         }
 
         private void Update()
@@ -26,13 +21,7 @@ namespace Rodlix.Asteroid
 
         private void Move()
         {
-            transform.position += direction * speed * Time.deltaTime;
-        }
-
-
-        private float Randomaized(float min, float max)
-        {
-            return Random.Range(min, max);
+            transform.position += _speed * Time.deltaTime * transform.up;
         }
     }
 }

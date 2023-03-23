@@ -2,7 +2,7 @@
 
 namespace Rodlix.Asteroid
 {
-    [CreateAssetMenu(menuName = "Rodlix/SpawnData", fileName = "SpawnData", order = 5)]
+    [CreateAssetMenu(menuName = "Rodlix/AsteroidData", fileName = "AsteroidData", order = 5)]
     public class AsteroidData : ScriptableObject
     {
         [SerializeField] private Asteroid _asteroidX;

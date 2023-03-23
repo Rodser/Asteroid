@@ -1,45 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
     public class Ship : MonoBehaviour
     {
-        [SerializeField] private float maxSpeed = 1f;
-        [SerializeField] private float speedRotatyon = 1f;
-        [SerializeField] private float acceleration = 1f;
+        [SerializeField] private GameObject _pointShot;
+        [SerializeField] private float _maxSpeed = 1f;
+        [SerializeField] private float _speedRotation = 1f;
+        [SerializeField] private float _acceleration = 1f;
 
-        private Rigidbody playerRigidbody;
-        private Vector3 movening;
-        private float rotation;
-        private Vector3 lastPosition;
-        private Vector3 currentPosition;
-        private float invulnerabilityTime = 3f;
+        private Rigidbody _playerRigidbody;
+        private Vector3 _impulseMovement;
+        private float _rotation;
+        private Vector3 _lastPosition;
+        private Vector3 _currentPosition;
+
+        public GameObject PointShot => _pointShot;
 
         private void Start()
         {
-            playerRigidbody = GetComponent<Rigidbody>();
-            lastPosition = transform.position;
+            _playerRigidbody = GetComponent<Rigidbody>();
+            _lastPosition = transform.position;
         }
 
         private void Update()
         {
-            currentPosition = transform.position;
-            float speed = Vector3.Distance(currentPosition, lastPosition);
-            lastPosition = currentPosition;
+            _currentPosition = transform.position;
+            float speed = Vector3.Distance(_currentPosition, _lastPosition);
+            _lastPosition = _currentPosition;
 
             if (Input.GetAxis("Vertical") == 1)
             {
-                if (speed <= maxSpeed)
+                if (speed <= _maxSpeed)
                 {
-                    movening = acceleration * Time.deltaTime * transform.up;
-                    playerRigidbody.AddForce(movening, ForceMode.Force);
+                    _impulseMovement = _acceleration * Time.deltaTime * transform.up;
+                    _playerRigidbody.AddForce(_impulseMovement, ForceMode.Force);
                 }
             }
 
-            rotation = Input.GetAxis("Horizontal") * -speedRotatyon;
-            transform.Rotate(0, 0, rotation * Time.deltaTime);
+            _rotation = Input.GetAxis("Horizontal") * -_speedRotation;
+            transform.Rotate(0, 0, _rotation * Time.deltaTime);
                         
         }
     }

@@ -5,14 +5,14 @@ namespace Rodlix.Asteroid
 {
     public class StartUp : MonoBehaviour
     {
-        [SerializeField] private Spawner _spawner;
         [SerializeField] private DataContainer _dataContainer;
 
         private IServiceLocator<IService> _services;
         private IServiceLocator<IStart> _startService;
         private bool _isRunning = false;
-
-        public Spawner Spawner => _spawner;
+        private object _playerBuilder;
+        private AsteroidBuilder _asteroidBuilder;
+        private InputService _inputService;
 
         private void Start()
         {
@@ -27,25 +27,27 @@ namespace Rodlix.Asteroid
 
         private void Update()
         {
-            if (!_isRunning)
-                return;
             ToRun();
         }
 
-        public void StartRunning()
+        private void RegisterAllServices()
+        {
+            _playerBuilder = _startService.Register(new PlayerBuilder(_dataContainer.PlayerData));
+            _asteroidBuilder = _startService.Register(new AsteroidBuilder());
+
+            _inputService = _services.Register(new InputService());
+            _services.Register(new WeaponService(_inputService, _dataContainer.WeaponData));
+        }
+
+        private void StartRunning()
         {
             StartServices();
             _isRunning = true;
         }
 
-        public void StopRunning()
+        private void StopRunning()
         {
             _isRunning = false;
-        }
-
-        private void RegisterAllServices()
-        {
-            _ = _startService.Register(new SpawnAsteroids());
         }
 
         private void StartServices()
@@ -66,13 +68,13 @@ namespace Rodlix.Asteroid
 
         private void ToRun()
         {
+            if (!_isRunning)
+            {
+                return;
+            }
             var services = _services.GetAll();
             foreach (IService service in services)
             {
-                if (!_isRunning)
-                {
-                    return;
-                }
                 try
                 {
                     service?.Tick();

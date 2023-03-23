@@ -366,7 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679e61537246ff44ea33bf047bb1f705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawner: {fileID: 1951467241}
   _dataContainer: {fileID: 11400000, guid: e23e3123188b8db4db3ea598b50463bb, type: 2}
 --- !u!1001 &4950770125369842221
 PrefabInstance:
@@ -428,6 +427,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2268272831397247779, guid: 49b606755a9a33d4ebd0847711aef209, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593953472065809946, guid: 49b606755a9a33d4ebd0847711aef209, type: 3}
+      propertyPath: _projectile
+      value: 
+      objectReference: {fileID: 2959271955729710388, guid: 151ee307302ac174e8d63f565a204f08, type: 3}
     - target: {fileID: 8616538867114200491, guid: 49b606755a9a33d4ebd0847711aef209, type: 3}
       propertyPath: m_UseGravity
       value: 0

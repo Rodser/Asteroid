@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8616538867114200491}
   - component: {fileID: 8149008574138432136}
   - component: {fileID: 6695765167596910741}
-  - component: {fileID: 8593953472065809946}
   - component: {fileID: 3871185757541838650}
   m_Layer: 0
   m_Name: Player
@@ -33,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8260326441387964399}
   - {fileID: 7215818214540455556}
@@ -96,10 +96,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322704942210325238}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -113,9 +124,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322704942210325238}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2, y: 1.9999998, z: 1.9999998}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6695765167596910741
@@ -130,24 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a109419fab0be940a4a408f1e0a3140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0.5
-  speedRotatyon: 60
-  acceleration: 33
---- !u!114 &8593953472065809946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322704942210325238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67f4a099e280fc4baa61c9fd705f8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointOfShot: {fileID: 7215818214540455556}
-  projectile: {fileID: 2959271955729710388, guid: 151ee307302ac174e8d63f565a204f08, type: 3}
-  rateOfFire: 3
+  _maxSpeed: 5
+  _speedRotation: 55
+  _acceleration: 55
 --- !u!114 &3871185757541838650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +193,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1094843943168098380}
   m_RootOrder: 0
@@ -269,6 +274,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1094843943168098380}
   m_RootOrder: 1

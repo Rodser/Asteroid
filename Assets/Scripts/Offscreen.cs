@@ -4,53 +4,59 @@ namespace Rodlix.Asteroid
 {
     public class Offscreen : MonoBehaviour
     {
-		[SerializeField] private float offset = 0.05f;
+		[SerializeField] private float _offset = 0.05f;
 
-        private Vector3 viewportPosition;
-		private Camera cameraView;
-        private float leftBorder;
-        private float rightBorder;
-        private float topBorder;
-        private float bottomBorder;
+        private Vector3 _viewportPosition;
+		private Camera _cameraView;
+        private float _leftBorder;
+        private float _rightBorder;
+        private float _topBorder;
+        private float _bottomBorder;
 
         private void Start()
         {
-			cameraView = Camera.main.GetComponent<Camera>();
-			leftBorder = 0f - offset;
-			rightBorder = 1f + offset;
-			topBorder = 0f - offset;
-			bottomBorder = 1f + offset;
+			_cameraView = Camera.main.GetComponent<Camera>();
+			_leftBorder = 0f - _offset;
+			_rightBorder = 1f + _offset;
+			_topBorder = 0f - _offset;
+			_bottomBorder = 1f + _offset;
         }
+
         private void Update()
         {
-			viewportPosition = cameraView.WorldToViewportPoint(transform.position);
+            _viewportPosition = _cameraView.WorldToViewportPoint(transform.position);
 
-			if (viewportPosition.x < leftBorder)
-			{
-				viewportPosition.x = rightBorder;
-				TranslatePosition();
-			}
-			else if (viewportPosition.x > rightBorder)
-			{
-				viewportPosition.x = leftBorder;
-				TranslatePosition();
-			}
+            CheckingPosition();
+        }
 
-			if (viewportPosition.y < topBorder)
-			{
-				viewportPosition.y = bottomBorder;
-				TranslatePosition();
-			}
-			else if (viewportPosition.y > bottomBorder)
-			{
-				viewportPosition.y = topBorder;
-				TranslatePosition();
-			}
-		}
+        private void CheckingPosition()
+        {
+            if (_viewportPosition.x < _leftBorder)
+            {
+                _viewportPosition.x = _rightBorder;
+                TranslatePosition();
+            }
+            else if (_viewportPosition.x > _rightBorder)
+            {
+                _viewportPosition.x = _leftBorder;
+                TranslatePosition();
+            }
+
+            if (_viewportPosition.y < _topBorder)
+            {
+                _viewportPosition.y = _bottomBorder;
+                TranslatePosition();
+            }
+            else if (_viewportPosition.y > _bottomBorder)
+            {
+                _viewportPosition.y = _topBorder;
+                TranslatePosition();
+            }
+        }
 
         private void TranslatePosition()
         {
-			transform.position = cameraView.ViewportToWorldPoint(viewportPosition);
+			transform.position = _cameraView.ViewportToWorldPoint(_viewportPosition);
         }
     }
 }

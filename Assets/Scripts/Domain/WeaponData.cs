@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
@@ -15,6 +16,11 @@ namespace Rodlix.Asteroid
         {
             var player = _playerDT.Player.PointShot.transform;
             Instantiate(_projectile, player.position, player.rotation);
+        }
+
+        internal Weapon Build()
+        {
+            return new Weapon(this);
         }
     }
 }

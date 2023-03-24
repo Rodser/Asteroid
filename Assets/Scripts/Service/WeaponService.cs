@@ -5,10 +5,10 @@ namespace Rodlix.Asteroid
     internal class WeaponService : IService
     {
         private readonly InputService _inputService;
-        private readonly WeaponData _weapon;
+        private readonly Weapon _weapon;
         private float _currentTime;
 
-        public WeaponService(InputService inputService, WeaponData weapon)
+        public WeaponService(InputService inputService, Weapon weapon)
         {
             _inputService = inputService;
             _weapon = weapon;

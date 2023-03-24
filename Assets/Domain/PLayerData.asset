@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: PLayerData
   m_EditorClassIdentifier: 
   _ship: {fileID: 6695765167596910741, guid: 49b606755a9a33d4ebd0847711aef209, type: 3}
-  _projectile: {fileID: 2959271955729710388, guid: 151ee307302ac174e8d63f565a204f08, type: 3}
+  _weapon: {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}
   _rateOfFire: 3
+  _maxSpeed: 5
+  _speedRotation: 55
+  _acceleration: 55

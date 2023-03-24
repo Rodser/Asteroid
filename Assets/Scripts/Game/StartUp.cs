@@ -8,19 +8,22 @@ namespace Rodlix.Asteroid
         [SerializeField] private DataContainer _dataContainer;
 
         private IServiceLocator<IService> _services;
-        private IServiceLocator<IStart> _startService;
+        private IServiceLocator<IBuilder> _builders;
         private bool _isRunning = false;
         private PlayerBuilder _playerBuilder;
         private AsteroidBuilder _asteroidBuilder;
+        private UFOBuilder _ofoBuilder;
+        private WeaponBuilder _weaponBuilder;
         private InputService _inputService;
 
         private void Start()
         {
             Container.Bind(_dataContainer);
 
-            _startService = new ServiceLocator<IStart>();
+            _builders = new ServiceLocator<IBuilder>();
             _services = new ServiceLocator<IService>();
 
+            RegisterAllBuilders();
             RegisterAllServices();
             StartRunning();
         }
@@ -30,18 +33,23 @@ namespace Rodlix.Asteroid
             ToRun();
         }
 
+        private void RegisterAllBuilders()
+        {
+            _playerBuilder = _builders.Register(new PlayerBuilder(_dataContainer.PlayerData));
+            _asteroidBuilder = _builders.Register(new AsteroidBuilder());
+            _ofoBuilder = _builders.Register(new UFOBuilder(_dataContainer.UfoData));
+            _weaponBuilder = _builders.Register(new WeaponBuilder(_dataContainer));
+        }
+
         private void RegisterAllServices()
         {
-            _playerBuilder = _startService.Register(new PlayerBuilder(_dataContainer.PlayerData));
-            _asteroidBuilder = _startService.Register(new AsteroidBuilder());
-
             _inputService = _services.Register(new InputService());
-            _services.Register(new WeaponService(_inputService, _dataContainer.WeaponData));
+            _services.Register(new WeaponService(_inputService, _weaponBuilder.Weapon));
         }
 
         private void StartRunning()
         {
-            StartServices();
+            StartBuild();
             _isRunning = true;
         }
 
@@ -50,14 +58,14 @@ namespace Rodlix.Asteroid
             _isRunning = false;
         }
 
-        private void StartServices()
+        private void StartBuild()
         {
-            var services = _startService.GetAll();
-            foreach (IStart service in services)
+            var builders = _builders.GetAll();
+            foreach (IBuilder builder in builders)
             {
                 try
                 {
-                    service?.OnStart();
+                    builder?.Start();
                 }
                 catch (Exception e)
                 {

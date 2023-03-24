@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 2408707768427881976}
   - component: {fileID: 2206137583974003308}
   m_Layer: 0
-  m_Name: NLO
+  m_Name: UFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

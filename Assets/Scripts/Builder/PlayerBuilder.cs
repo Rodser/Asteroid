@@ -1,6 +1,6 @@
 ﻿namespace Rodlix.Asteroid
 {
-    internal class PlayerBuilder : IStart
+    internal class PlayerBuilder : IBuilder
     {
         private readonly PLayerData _playerData;
 
@@ -9,7 +9,7 @@
             _playerData = playerData;
         }
 
-        public void OnStart()
+        public void Start()
         {
             _playerData.Build();
         }

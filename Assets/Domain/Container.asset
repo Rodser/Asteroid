@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32e123035dbe42e49b30943ec22bb340, type: 3}
-  m_Name: DataContainer
+  m_Name: Container
   m_EditorClassIdentifier: 
-  _asteroidData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
   _playerData: {fileID: 11400000, guid: 7a8edc1efb8c7b442a1335a30314829c, type: 2}
-  _weaponData: {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}
+  _asteroidData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
+  _weaponDatas:
+  - {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}
+  - {fileID: 11400000, guid: b61b307d3b726cd4a97060710eb15c38, type: 2}

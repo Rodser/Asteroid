@@ -16,4 +16,3 @@ MonoBehaviour:
   _asteroidData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
   _weaponDatas:
   - {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}
-  - {fileID: 11400000, guid: b61b307d3b726cd4a97060710eb15c38, type: 2}

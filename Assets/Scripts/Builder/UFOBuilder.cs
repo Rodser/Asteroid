@@ -9,7 +9,7 @@
             _ufoData = ufoData;
         }
 
-        public void Start()
+        public void Build()
         {
         }
     }

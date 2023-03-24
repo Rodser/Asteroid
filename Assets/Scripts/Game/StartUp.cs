@@ -38,13 +38,13 @@ namespace Rodlix.Asteroid
             _playerBuilder = _builders.Register(new PlayerBuilder(_dataContainer.PlayerData));
             _asteroidBuilder = _builders.Register(new AsteroidBuilder());
             _ofoBuilder = _builders.Register(new UFOBuilder(_dataContainer.UfoData));
-            _weaponBuilder = _builders.Register(new WeaponBuilder(_dataContainer));
         }
 
         private void RegisterAllServices()
         {
             _inputService = _services.Register(new InputService());
-            _services.Register(new WeaponService(_inputService, _weaponBuilder.Weapon));
+            _services.Register(new WeaponPlayerService(_inputService, _playerBuilder.Player.Weapon));
+            _services.Register(new PlayerService(_inputService, _playerBuilder.Player));
         }
 
         private void StartRunning()
@@ -65,7 +65,7 @@ namespace Rodlix.Asteroid
             {
                 try
                 {
-                    builder?.Start();
+                    builder?.Build();
                 }
                 catch (Exception e)
                 {

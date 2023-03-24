@@ -4,7 +4,7 @@ namespace Rodlix.Asteroid
 {
     public class AsteroidBuilder : IBuilder
     {
-        public void Start()
+        public void Build()
         {
             var cameraView = Camera.main.GetComponent<Camera>();
             var data = Container.Get<DataContainer>();

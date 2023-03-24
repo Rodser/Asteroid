@@ -2,13 +2,13 @@
 
 namespace Rodlix.Asteroid
 {
-    internal class WeaponService : IService
+    internal class WeaponPlayerService : IService
     {
         private readonly InputService _inputService;
         private readonly Weapon _weapon;
         private float _currentTime;
 
-        public WeaponService(InputService inputService, Weapon weapon)
+        public WeaponPlayerService(InputService inputService, Weapon weapon)
         {
             _inputService = inputService;
             _weapon = weapon;
@@ -18,7 +18,7 @@ namespace Rodlix.Asteroid
         {
             float timeBetweenShots = 1f / _weapon.RateOfFire ;
             _currentTime += Time.deltaTime;
-            if (_inputService.Fire && _currentTime < timeBetweenShots)
+            if (_inputService.Fire && _currentTime > timeBetweenShots)
             {
                 _weapon.Fire();
                 _currentTime = 0f;

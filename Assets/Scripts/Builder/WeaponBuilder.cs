@@ -1,9 +1,8 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
-    internal class WeaponBuilder : IBuilder
+    internal class WeaponBuilder 
     {
         private readonly WeaponData _weaponData;
         private readonly IAircraft _aircraft;
@@ -13,29 +12,20 @@ namespace Rodlix.Asteroid
         {
             _weaponData = weaponData;
             _aircraft = aircraft;
-            Build();
         }
 
-        internal Weapon Weapon => _weapon;
-
-        public void Build()
+        public WeaponBuilder BuildBody()
         {
-            _weapon = _weaponData.Build(_aircraft);
+            _weapon = Object.Instantiate(_weaponData.Weapon, _aircraft.PointWeapon.position, _aircraft.PointWeapon.rotation, _aircraft.PointWeapon);
+            _weapon.Charge(_weaponData.Projectile, _weaponData.RateOfFire);
+            return this;
         }
 
-        public IBuilder BuildBody(Vector3 position, Quaternion rotation)
+        public Weapon GetWeapon()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public IBuilder BuildWeapon(WeaponData data)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Object GetObject()
-        {
-            throw new System.NotImplementedException();
+            Weapon weapon = _weapon;
+            _weapon = null;
+            return weapon;
         }
     }
 }

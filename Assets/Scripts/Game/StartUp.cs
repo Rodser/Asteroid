@@ -29,14 +29,14 @@ namespace Rodlix.Asteroid
 
         private void BuildObjects()
         {
-            var playerBuilder = new PlayerBuilder(_dataContainer.PlayerData);
-            _player = (Ship)playerBuilder
-                                    .BuildBody(Vector3.zero, Quaternion.identity)
-                                    .BuildWeapon(_dataContainer.PlayerData.WeaponData)
-                                    .GetObject();
+            var playerBuilder = new ShipBuilder(_dataContainer.PlayerData.Ship);
+            _player = playerBuilder
+                        .BuildBody(Vector3.zero, Quaternion.identity)
+                        .BuildWeapon(_dataContainer.PlayerData.WeaponData)
+                        .GetShip();
 
-            var asteroidBuilder = new AsteroidBuilder();
-            var ofoBuilder = new UFOBuilder(_dataContainer.UfoData);
+            var asteroidBuilder = new AsteroidBuilder(_dataContainer.AsteroidData);
+            asteroidBuilder.Build(Size.Large);
         }
 
         private void RegisterAllServices()

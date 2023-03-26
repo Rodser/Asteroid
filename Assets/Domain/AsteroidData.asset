@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0469fcdfa9e10cd4b9a9564ab6cf70e9, type: 3}
   m_Name: AsteroidData
   m_EditorClassIdentifier: 
-  _asteroidX: {fileID: 9158984882427860973, guid: 69f1a645257f80a4994246fbef7d8d74, type: 3}
-  _asteroidXX: {fileID: 9158984882427860973, guid: 69f1a645257f80a4994246fbef7d8d74, type: 3}
-  _asteroidXXX: {fileID: 2408707768427881976, guid: e2b9a41135db5ec46a58eaeea487c741, type: 3}
+  _asteroidSmall: {fileID: 9158984882427860973, guid: 69f1a645257f80a4994246fbef7d8d74, type: 3}
+  _asteroidMedium: {fileID: 7187908520416738780, guid: 739077f1b86513a4cb34d96425f8cd15, type: 3}
+  _asteroidLarge: {fileID: 4829882153444821373, guid: 55e29d33a095caf4daebcde6f1b5b9b1, type: 3}
   _countStartAsteroids: 4
   _countAsteroidsAfter: 2

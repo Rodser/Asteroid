@@ -100,7 +100,7 @@ MonoBehaviour:
   _pointWeapon: {fileID: 7215818214540455556}
   _maxSpeed: 5
   _speedRotation: 55
-  _acceleration: 55
+  _acceleration: 110.1
 --- !u!114 &3871185757541838650
 MonoBehaviour:
   m_ObjectHideFlags: 0

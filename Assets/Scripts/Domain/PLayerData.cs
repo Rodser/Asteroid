@@ -9,13 +9,6 @@ namespace Rodlix.Asteroid
         [SerializeField] private float _speedRotation = 1f;
         [SerializeField] private float _acceleration = 1f;
 
-        internal Ship Ship { get => _ship; set => _ship = value; }
-
-        internal Ship Build()
-        {
-            var ship = Instantiate(_ship, Vector3.zero, Quaternion.identity);
-            ship.SetParameters(_maxSpeed, _acceleration, _speedRotation);
-            return ship;
-        }
+        internal Ship Ship => _ship;
     }
 }

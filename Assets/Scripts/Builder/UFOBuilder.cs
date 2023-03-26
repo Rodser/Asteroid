@@ -25,7 +25,7 @@ namespace Rodlix.Asteroid
             throw new System.NotImplementedException();
         }
 
-        public Object GetObject()
+        public Object GetBilding()
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿namespace Rodlix.Asteroid
+﻿using UnityEngine;
+
+namespace Rodlix.Asteroid
 {
     internal class UFOBuilder : IBuilder
     {
@@ -11,6 +13,21 @@
 
         public void Build()
         {
+        }
+
+        public IBuilder BuildBody(Vector3 position, Quaternion rotation)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IBuilder BuildWeapon(WeaponData data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Object GetObject()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

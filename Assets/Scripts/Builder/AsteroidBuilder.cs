@@ -18,6 +18,21 @@ namespace Rodlix.Asteroid
             }
         }
 
+        public Object GetObject()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IBuilder IBuilder.BuildBody(Vector3 position, Quaternion rotation)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IBuilder IBuilder.BuildWeapon(WeaponData data)
+        {
+            throw new System.NotImplementedException();
+        }
+
         private Quaternion GetDirection()
         {
             return new Quaternion(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f, 0f);

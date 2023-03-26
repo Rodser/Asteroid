@@ -1,7 +1,11 @@
-﻿namespace Rodlix.Asteroid
+﻿using UnityEngine;
+
+namespace Rodlix.Asteroid
 {
     internal interface IBuilder
     {
-        void Build();
+        IBuilder BuildBody(Vector3 position, Quaternion rotation);
+        IBuilder BuildWeapon(WeaponData data);
+        Object GetObject();
     }
 }

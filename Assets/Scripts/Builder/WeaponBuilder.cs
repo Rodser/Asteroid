@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
@@ -20,6 +21,21 @@ namespace Rodlix.Asteroid
         public void Build()
         {
             _weapon = _weaponData.Build(_aircraft);
+        }
+
+        public IBuilder BuildBody(Vector3 position, Quaternion rotation)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IBuilder BuildWeapon(WeaponData data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Object GetObject()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -8,22 +8,16 @@ namespace Rodlix.Asteroid
         [SerializeField] private DataContainer _dataContainer;
 
         private IServiceLocator<IService> _services;
-        private IServiceLocator<IBuilder> _builders;
         private bool _isRunning = false;
-        private PlayerBuilder _playerBuilder;
-        private AsteroidBuilder _asteroidBuilder;
-        private UFOBuilder _ofoBuilder;
-        private WeaponBuilder _weaponBuilder;
+        private Ship _player;
         private InputService _inputService;
 
         private void Start()
         {
             Container.Bind(_dataContainer);
-
-            _builders = new ServiceLocator<IBuilder>();
             _services = new ServiceLocator<IService>();
 
-            RegisterAllBuilders();
+            BuildObjects();
             RegisterAllServices();
             StartRunning();
         }
@@ -33,45 +27,33 @@ namespace Rodlix.Asteroid
             ToRun();
         }
 
-        private void RegisterAllBuilders()
+        private void BuildObjects()
         {
-            _playerBuilder = _builders.Register(new PlayerBuilder(_dataContainer.PlayerData));
-            _asteroidBuilder = _builders.Register(new AsteroidBuilder());
-            _ofoBuilder = _builders.Register(new UFOBuilder(_dataContainer.UfoData));
+            var playerBuilder = new PlayerBuilder(_dataContainer.PlayerData);
+            _player = (Ship)playerBuilder
+                                    .BuildBody(Vector3.zero, Quaternion.identity)
+                                    .BuildWeapon(_dataContainer.PlayerData.WeaponData)
+                                    .GetObject();
+
+            var asteroidBuilder = new AsteroidBuilder();
+            var ofoBuilder = new UFOBuilder(_dataContainer.UfoData);
         }
 
         private void RegisterAllServices()
         {
             _inputService = _services.Register(new InputService());
-            _services.Register(new WeaponPlayerService(_inputService, _playerBuilder.Player.Weapon));
-            _services.Register(new PlayerService(_inputService, _playerBuilder.Player));
+            _services.Register(new WeaponPlayerService(_inputService, _player.Weapon));
+            _services.Register(new PlayerService(_inputService, _player));
         }
 
         private void StartRunning()
         {
-            StartBuild();
             _isRunning = true;
         }
 
         private void StopRunning()
         {
             _isRunning = false;
-        }
-
-        private void StartBuild()
-        {
-            var builders = _builders.GetAll();
-            foreach (IBuilder builder in builders)
-            {
-                try
-                {
-                    builder?.Build();
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError(e);
-                }
-            }
         }
 
         private void ToRun()

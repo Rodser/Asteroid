@@ -1,26 +1,36 @@
-﻿namespace Rodlix.Asteroid
+﻿using UnityEngine;
+
+namespace Rodlix.Asteroid
 {
     internal class PlayerBuilder : IBuilder
     {
         private readonly PLayerData _playerData;
         private WeaponBuilder _weaponBuilder;
-
-        public Ship Player { get; private set; }
+        private Ship _playerShip;
 
         public PlayerBuilder(PLayerData playerData)
         {
             _playerData = playerData;
-            Build();
         }
 
-        public void Build()
+        public IBuilder BuildBody(Vector3 position, Quaternion rotation)
         {
-            if (Player == null)
-            {
-                Player = _playerData.Build();
-                _weaponBuilder = new WeaponBuilder(_playerData.WeaponData, Player);
-                Player.Equip(_weaponBuilder.Weapon);
-            }
+            _playerShip = Object.Instantiate(_playerData.Ship, position, rotation);
+            return this;
+        }
+
+        public IBuilder BuildWeapon(WeaponData data)
+        {
+            _weaponBuilder = new WeaponBuilder(data, _playerShip);
+            _playerShip.Equip(_weaponBuilder.Weapon);
+            return this;
+        }
+
+        public Object GetObject()
+        {
+            Ship ship = _playerShip;
+            _playerShip = null;
+            return ship;
         }
     }
 }

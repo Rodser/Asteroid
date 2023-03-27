@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa8c6fe211d4f748be714d80a30daf9, type: 3}
+  m_Name: UFOConfig
+  m_EditorClassIdentifier: 
+  _ship: {fileID: 4912351467381563906, guid: e2b9a41135db5ec46a58eaeea487c741, type: 3}
+  _acceleration: 2.42
+  _maxSpeed: 2.56
+  _speedRotation: 0.64
+  _weapon: {fileID: 11400000, guid: e74d51d31b61a364787cf3507fa3b026, type: 2}

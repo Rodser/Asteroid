@@ -43,8 +43,8 @@ namespace Rodlix.Asteroid
 
         public void Rotate(float rotate)
         {
-            _rotation = rotate * -_speedRotation;
-            transform.Rotate(0, 0, _rotation * Time.deltaTime);
+            _rotation = rotate * _speedRotation;
+            transform.Rotate(Vector3.forward, _rotation * Time.deltaTime);
         }
 
         internal void SetParameters(float maxSpeed, float acceleration, float speedRotation)

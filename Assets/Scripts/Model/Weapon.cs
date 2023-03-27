@@ -8,7 +8,6 @@ namespace Rodlix.Asteroid
         private GameObject _projectile;
         private int _rateOfFire;
 
-        public GameObject PointShot => _pointShot;
         public int RateOfFire => _rateOfFire; 
 
         internal void Fire()

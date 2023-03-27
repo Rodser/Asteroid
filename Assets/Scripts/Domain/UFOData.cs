@@ -1,6 +1,14 @@
-﻿namespace Rodlix.Asteroid
+﻿using UnityEngine;
+
+namespace Rodlix.Asteroid
 {
-    internal class UFOData
+    [CreateAssetMenu]
+    internal class UFOData : ScriptableObject
     {
+        [SerializeField] private Ship _prefab;
+        [SerializeField] private WeaponData _weapon;
+
+        public Ship Prefab => _prefab;
+        public WeaponData Weapon => _weapon;
     }
 }

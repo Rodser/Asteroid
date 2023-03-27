@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData: {fileID: 11400000, guid: 7a8edc1efb8c7b442a1335a30314829c, type: 2}
   _asteroidData: {fileID: 11400000, guid: e718420dc61d853478e9bf47b9e5d905, type: 2}
+  _ufoData: {fileID: 11400000, guid: 8bb0772ed0463dd4aa4bfcbd9651aa21, type: 2}
   _weaponDatas:
   - {fileID: 11400000, guid: aef268f0bfe72614590428421cf4cada, type: 2}

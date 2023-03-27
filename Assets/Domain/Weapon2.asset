@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ebc40683ce77aa43ae795c5737e501c, type: 3}
-  m_Name: WeaponPlayerData
+  m_Name: Weapon2
   m_EditorClassIdentifier: 
   _weapon: {fileID: 4011217752563865733, guid: a1e7a5a685eb3c94f9a3713d378cec0a, type: 3}
   _projectile: {fileID: 2959271955729710388, guid: 151ee307302ac174e8d63f565a204f08, type: 3}

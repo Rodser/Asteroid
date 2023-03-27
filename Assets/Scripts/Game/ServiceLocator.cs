@@ -29,7 +29,7 @@ namespace Rodlix.Asteroid
             var type = typeof(TP);
             if (!_valueItems.ContainsKey(type))
             {
-                throw new Exception("Нет в наличии");
+                return default;
             }
 
             return (TP)_valueItems[type];

@@ -14,7 +14,7 @@ namespace Rodlix.Asteroid
 
         private void Start()
         {
-            Container.Bind(_dataContainer);
+            //Container.Bind(_dataContainer);
             _services = new ServiceLocator<IService>();
 
             BuildObjects();
@@ -44,6 +44,7 @@ namespace Rodlix.Asteroid
             _inputService = _services.Register(new InputService());
             _services.Register(new WeaponPlayerService(_inputService, _player.Weapon));
             _services.Register(new PlayerService(_inputService, _player));
+            _services.Register(new UFOSpawnerService(_dataContainer.UfoData, _services));
         }
 
         private void StartRunning()

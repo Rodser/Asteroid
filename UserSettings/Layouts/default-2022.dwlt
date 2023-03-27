@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 51
+  controlID: 49
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 328
     height: 883
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -717,9 +717,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.678488, y: 0.06871033, z: -12.645679}
+    m_Target: {x: -15.547863, y: -12.155821, z: -10.686163}
     speed: 2
-    m_Value: {x: 6.678488, y: 0.06871033, z: -12.645679}
+    m_Value: {x: -15.547863, y: -12.155821, z: -10.686163}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -765,13 +765,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.418
   m_Rotation:
-    m_Target: {x: -0.012134228, y: 0.9679098, z: -0.24643637, w: -0.04765881}
+    m_Target: {x: 0.0061057783, y: 0.9926695, z: -0.05695201, w: 0.10642292}
     speed: 2
-    m_Value: {x: -0.012134235, y: 0.9679104, z: -0.24643652, w: -0.04765884}
+    m_Value: {x: 0.00610578, y: 0.9926698, z: -0.05695203, w: 0.10642295}
   m_Size:
-    m_Target: 45.85094
+    m_Target: 25.743088
     speed: 2
-    m_Value: 45.85094
+    m_Value: 25.743088
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -833,9 +833,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40580000
+      m_SelectedIDs: 36580000
       m_LastClickedID: 0
-      m_ExpandedIDs: d83fffff1efbffff20fbffff
+      m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -906,23 +906,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Domain
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Domain
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\0Unity\Asteroid
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 18}
-    m_SelectedIDs: c0580000
-    m_LastClickedID: 22720
-    m_ExpandedIDs: 00000000ac580000ae580000b0580000b2580000b458000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 28590000
+    m_LastClickedID: 22824
+    m_ExpandedIDs: 000000001c5900001e590000205900002259000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -950,7 +950,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac580000ae580000b0580000b2580000b4580000
+    m_ExpandedIDs: 000000001c5900001e5900002059000022590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -981,18 +981,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000000000001c6b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: DataContainer
-      m_OriginalName: DataContainer
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -18700
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:

@@ -18,7 +18,7 @@ namespace Rodlix.Asteroid
             return this;
         }
 
-        public ShipBuilder BuildWeapon(WeaponData data)
+        public ShipBuilder BuildWeapon(WeaponConfig data)
         {
             var weaponBuilder = new WeaponBuilder(data, _ship);
             Weapon weapon = weaponBuilder

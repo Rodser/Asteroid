@@ -4,11 +4,11 @@ namespace Rodlix.Asteroid
 {
     internal class WeaponBuilder 
     {
-        private readonly WeaponData _weaponData;
+        private readonly WeaponConfig _weaponData;
         private readonly IAircraft _aircraft;
         private Weapon _weapon;
 
-        public WeaponBuilder(WeaponData weaponData, IAircraft aircraft)
+        public WeaponBuilder(WeaponConfig weaponData, IAircraft aircraft)
         {
             _weaponData = weaponData;
             _aircraft = aircraft;

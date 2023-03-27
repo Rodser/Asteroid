@@ -4,9 +4,9 @@ namespace Rodlix.Asteroid
 {
     public class AsteroidBuilder
     {
-        private readonly AsteroidData _data;
+        private readonly AsteroidConfig _data;
 
-        public AsteroidBuilder(AsteroidData data)
+        public AsteroidBuilder(AsteroidConfig data)
         {
             _data = data;
         }

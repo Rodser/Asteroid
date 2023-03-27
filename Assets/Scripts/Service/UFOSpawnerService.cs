@@ -5,10 +5,10 @@ namespace Rodlix.Asteroid
 {
     internal class UFOSpawnerService : IService
     {
-        private UFOData _ufoData;
+        private ShipConfig _ufoData;
         private readonly IServiceLocator<IService> _services;
 
-        public UFOSpawnerService(UFOData ufoData, IServiceLocator<IService> _services)
+        public UFOSpawnerService(ShipConfig ufoData, IServiceLocator<IService> _services)
         {
             _ufoData = ufoData;
             this._services = _services;
@@ -28,10 +28,10 @@ namespace Rodlix.Asteroid
                 return;
             }
 
-            var builder = new ShipBuilder(_ufoData.Prefab);
+            var builder = new ShipBuilder(_ufoData.Ship);
             var ufo = builder
                 .BuildBody(GetPosition(), GetDirection())
-                .BuildWeapon(_ufoData.Weapon)
+                .BuildWeapon(_ufoData.WeaponConfig)
                 .GetShip();
 
             _services.Register(new UFOService(ufo));

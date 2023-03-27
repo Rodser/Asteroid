@@ -5,7 +5,7 @@ namespace Rodlix.Asteroid
 {
     public class StartUp : MonoBehaviour
     {
-        [SerializeField] private DataContainer _dataContainer;
+        [SerializeField] private ConfigContainer _configContainer;
 
         private IServiceLocator<IService> _services;
         private bool _isRunning = false;
@@ -14,7 +14,6 @@ namespace Rodlix.Asteroid
 
         private void Start()
         {
-            //Container.Bind(_dataContainer);
             _services = new ServiceLocator<IService>();
 
             BuildObjects();
@@ -29,13 +28,13 @@ namespace Rodlix.Asteroid
 
         private void BuildObjects()
         {
-            var playerBuilder = new ShipBuilder(_dataContainer.PlayerData.Ship);
+            var playerBuilder = new ShipBuilder(_configContainer.ShipConfig.Ship);
             _player = playerBuilder
                         .BuildBody(Vector3.zero, Quaternion.identity)
-                        .BuildWeapon(_dataContainer.PlayerData.WeaponData)
+                        .BuildWeapon(_configContainer.ShipConfig.WeaponConfig)
                         .GetShip();
 
-            var asteroidBuilder = new AsteroidBuilder(_dataContainer.AsteroidData);
+            var asteroidBuilder = new AsteroidBuilder(_configContainer.AsteroidConfig);
             asteroidBuilder.Build(Size.Large);
         }
 
@@ -44,7 +43,7 @@ namespace Rodlix.Asteroid
             _inputService = _services.Register(new InputService());
             _services.Register(new WeaponPlayerService(_inputService, _player.Weapon));
             _services.Register(new PlayerService(_inputService, _player));
-            _services.Register(new UFOSpawnerService(_dataContainer.UfoData, _services));
+            _services.Register(new UFOSpawnerService(_configContainer.UFOConfig, _services));
         }
 
         private void StartRunning()

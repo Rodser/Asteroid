@@ -7,10 +7,6 @@ namespace Assets
 {
     public class DonationRo : MonoBehaviour
     {
-        // {username}
-        private readonly string token = "n7R0wGwLPFJIhkIXy5IA";
-
-        // tLyxk6BG8LkWuYLqCQF1GpvUxv9t4nYx3SLgxqEI
         //-X GET https://www.donationalerts.com/api/v1/alerts/donations \
         //-H "Authorization: Bearer <token>"
 
@@ -18,8 +14,6 @@ namespace Assets
         public string APP_ID = "10760";
         public string REDIRECT_URI = "https://www.donationalerts.com/widget/instream-stats?id=1591406&token=n7R0wGwLPFJIhkIXy5IA";
         public string SCOPE = "oauth-donation-index";
-        public string uri = "https://www.donationalerts.com/oauth/authorize?client_id=10760&redirect_uri=https://www.donationalerts.com/widget/instream-stats?id=1591406&token=n7R0wGwLPFJIhkIXy5IA&response_type=token&scope=oauth-donation-index";
-
 
         private void Start()
         {
@@ -28,9 +22,7 @@ namespace Assets
 
         public IEnumerator GetRequest()
         {
-
-
-            //var uri = new Uri("https://www.donationalerts.com/oauth/authorize?" + "client_id=" + APP_ID + "&redirect_uri=" + REDIRECT_URI + "&response_type=token" + "&scope=" + SCOPE);
+            var uri = "https://www.donationalerts.com/oauth/authorize?" + "client_id=" + APP_ID + "&redirect_uri=" + REDIRECT_URI + "&response_type=token" + "&scope=" + SCOPE;
             using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
             {
                 webRequest.method = "GET";

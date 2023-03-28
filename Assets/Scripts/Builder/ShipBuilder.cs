@@ -22,7 +22,7 @@ namespace Rodlix.Asteroid
         public ShipBuilder BuildWing(WingConfig wingConfig)
         {
             var wing = new WingBuilder(wingConfig).Build(_ship.transform);
-            _ship.Equip(wing);
+            _ship.EquipWing(wing);
             _ship.Modify(wingConfig.MaxSpeed, wingConfig.Acceleration, wingConfig.SpeedRotation);  
             return this;
         }
@@ -34,7 +34,7 @@ namespace Rodlix.Asteroid
                 .BuildBody()
                 .GetWeapon();
             
-            _ship.Equip(weapon);
+            _ship.EquipWeapon(weapon);
             return this;
         }
 

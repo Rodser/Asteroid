@@ -5,7 +5,7 @@ namespace Rodlix.Asteroid
     internal class Ship : MonoBehaviour, IAircraft
     {
         [SerializeField] private Transform _pointWeapon;
-       
+
         private Rigidbody _playerRigidbody;
         private Vector3 _impulseMovement;
         private Vector3 _lastPosition;
@@ -56,16 +56,14 @@ namespace Rodlix.Asteroid
             _acceleration += acceleration;
         }
 
-        internal void Equip<T>(T equipment) where T : MonoBehaviour
+        internal void EquipWeapon(Weapon equipment)
         {
-            if (typeof(T) == typeof(Weapon))
-            {
-                Weapon = equipment as Weapon;
-            }
-            else if(typeof(T) == typeof(Wing))
-            {
-                Wing = equipment as Wing;
-            }
+            Weapon = equipment;
+        }
+
+        internal void EquipWing(Wing equipment)
+        {
+            Wing = equipment;
         }
     }
 }

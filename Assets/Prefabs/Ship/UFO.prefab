@@ -199,7 +199,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!114 &2408707768427881976
 MonoBehaviour:
@@ -241,9 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointWeapon: {fileID: 6547022258294820158}
-  _maxSpeed: 1
-  _speedRotation: 1
-  _acceleration: 1
 --- !u!1 &8524859174922387062
 GameObject:
   m_ObjectHideFlags: 0

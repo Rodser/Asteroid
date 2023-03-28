@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Rodlix.Asteroid
 {
@@ -15,6 +16,7 @@ namespace Rodlix.Asteroid
         public ShipBuilder BuildBody(Vector3 position, Quaternion rotation)
         {
             _ship = Object.Instantiate(_shipConfig.Ship, position, rotation);
+            _ship.AddComponent<Health>();
             _ship.Modify(_shipConfig.MaxSpeed, _shipConfig.Acceleration, _shipConfig.SpeedRotation);  
             return this;
         }

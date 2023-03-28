@@ -8,18 +8,21 @@ namespace Rodlix.Asteroid
     [CreateAssetMenu(menuName = "Rodlix/ConfigContainer", fileName = "ConfigContainer", order = 4)]
     internal class ConfigContainer : ScriptableObject
     {
-        [Header("Информация о летающих объектах")]
-        [Space(5)]
-        
+        [Header("Информация о летающих объектах"), Space(5)]
+
         [Tooltip("Информация о корабле")]
         [SerializeField] private ShipConfig _shipConfig;
         [Tooltip("Информация о астероиде")]
         [SerializeField] private AsteroidConfig _asteroidConfig;
         [Tooltip("Информация о НЛО")]
         [SerializeField] private ShipConfig _ufoConfig;
-        
-        [Header("Информация о воороужении")]
-        [Space(5)]
+
+        [Header("Доступные крылья"),Space(5)]
+
+        [Tooltip("Информация о крыльях")]
+        [SerializeField] private WingConfig[] _wingConfigs;
+
+        [Header("Доступное вооружение"),Space(5)]
 
         [Tooltip("Информация о оружиях")]
         [SerializeField] private WeaponConfig[] _weaponConfigs;
@@ -40,5 +43,9 @@ namespace Rodlix.Asteroid
         /// Информация о оружиях
         /// </summary>
         public WeaponConfig[] WeaponConfig => _weaponConfigs;
+        /// <summary>
+        /// Информация о крыльях
+        /// </summary>
+        public WingConfig[] WingConfig => _wingConfigs;
     }
 }

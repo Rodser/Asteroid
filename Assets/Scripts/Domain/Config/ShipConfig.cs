@@ -8,8 +8,7 @@ namespace Rodlix.Asteroid
     [CreateAssetMenu(menuName = "Rodlix/ShipConfig", fileName = "ShipConfig", order = 7)]
     public class ShipConfig : ScriptableObject
     {
-        [Header("Информация о корабле")]
-        [Space(5)]
+        [Header("Информация о корабле"), Space(5)]
 
         [Tooltip("Префаб корабля")]
         [SerializeField] private Ship _ship;
@@ -20,8 +19,12 @@ namespace Rodlix.Asteroid
         [Tooltip("Скорость вращения корабля")]
         [SerializeField] private float _speedRotation = 1f;
 
-        [Header("Оружие")]
-        [Space(5)]
+        [Header("Базовое крыло"), Space(5)]
+
+        [Tooltip("Информация о крыльях")]
+        [SerializeField] private WingConfig _wingConfig;
+
+        [Header("Базовое оружие"), Space(5)]
 
         [Tooltip("Информация о оружии")]
         [SerializeField] private WeaponConfig _weapon;
@@ -30,6 +33,10 @@ namespace Rodlix.Asteroid
         /// Префаб корабля
         /// </summary>
         internal Ship Ship => _ship;
+        /// <summary>
+        /// Информация о крыле
+        /// </summary>
+        public WingConfig WingConfig => _wingConfig;
         /// <summary>
         /// Информация о оружии
         /// </summary>
@@ -45,6 +52,6 @@ namespace Rodlix.Asteroid
         /// <summary>
         /// Максимальная скорость корабля
         /// </summary>
-        protected float MaxSpeed => _maxSpeed;
+        public float MaxSpeed => _maxSpeed;
     }
 }

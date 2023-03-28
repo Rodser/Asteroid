@@ -28,9 +28,10 @@ namespace Rodlix.Asteroid
 
         private void BuildObjects()
         {
-            var playerBuilder = new ShipBuilder(_configContainer.ShipConfig.Ship);
+            var playerBuilder = new ShipBuilder(_configContainer.ShipConfig);
             _player = playerBuilder
                         .BuildBody(Vector3.zero, Quaternion.identity)
+                        .BuildWing(_configContainer.ShipConfig.WingConfig)
                         .BuildWeapon(_configContainer.ShipConfig.WeaponConfig)
                         .GetShip();
 

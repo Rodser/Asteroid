@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerShipConfig
   m_EditorClassIdentifier: 
   _ship: {fileID: 6695765167596910741, guid: 49b606755a9a33d4ebd0847711aef209, type: 3}
-  _acceleration: 111
-  _maxSpeed: 4
-  _speedRotation: 33
+  _acceleration: 55
+  _maxSpeed: 2
+  _speedRotation: 11
+  _wingConfig: {fileID: 11400000, guid: b8cd9f761f6160144adee97a48009364, type: 2}
   _weapon: {fileID: 11400000, guid: e74d51d31b61a364787cf3507fa3b026, type: 2}

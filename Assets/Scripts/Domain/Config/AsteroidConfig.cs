@@ -11,8 +11,7 @@ namespace Rodlix.Asteroid
         private const int DEFAULT_COUNT_START_ASTEROIDS = 1;
         private const int DEFAULT_COUNT_ASTEROIDS_AFTER = 2;
 
-        [Header("Префабы астероидов")]
-        [Space(5)]
+        [Header("Префабы астероидов"), Space(5)]
 
         [Tooltip("Префаб маленького астероида")]
         [SerializeField] private Asteroid _asteroidSmall;
@@ -21,8 +20,7 @@ namespace Rodlix.Asteroid
         [Tooltip("Префаб большого астероида")]
         [SerializeField] private Asteroid _asteroidLarge;
 
-        [Header("Настройки спавна")]
-        [Space(5)]
+        [Header("Настройки спавна"), Space(5)]
 
         [Tooltip("Количество астероидов при старте")]
         [SerializeField] private int _countStartAsteroids = DEFAULT_COUNT_START_ASTEROIDS;

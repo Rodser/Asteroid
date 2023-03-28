@@ -28,7 +28,7 @@ namespace Rodlix.Asteroid
                 return;
             }
 
-            var builder = new ShipBuilder(_ufoData.Ship);
+            var builder = new ShipBuilder(_ufoData);
             var ufo = builder
                 .BuildBody(GetPosition(), GetDirection())
                 .BuildWeapon(_ufoData.WeaponConfig)

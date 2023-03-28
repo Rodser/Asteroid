@@ -15,5 +15,5 @@ MonoBehaviour:
   _asteroidSmall: {fileID: 9158984882427860973, guid: 69f1a645257f80a4994246fbef7d8d74, type: 3}
   _asteroidMedium: {fileID: 7187908520416738780, guid: 739077f1b86513a4cb34d96425f8cd15, type: 3}
   _asteroidLarge: {fileID: 4829882153444821373, guid: 55e29d33a095caf4daebcde6f1b5b9b1, type: 3}
-  _countStartAsteroids: 1
+  _countStartAsteroids: 3
   _countAsteroidsAfter: 2

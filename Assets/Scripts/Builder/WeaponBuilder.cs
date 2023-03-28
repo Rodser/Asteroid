@@ -16,7 +16,7 @@ namespace Rodlix.Asteroid
 
         public WeaponBuilder BuildBody()
         {
-            _weapon = Object.Instantiate(_weaponData.Weapon, _aircraft.PointWeapon.position, _aircraft.PointWeapon.rotation, _aircraft.PointWeapon);
+            _weapon = Object.Instantiate(_weaponData.Weapon, _aircraft.PointWeapon);
             _weapon.Charge(_weaponData.Projectile, _weaponData.RateOfFire);
             return this;
         }

@@ -8,15 +8,14 @@ namespace Rodlix.Asteroid
     [CreateAssetMenu(menuName = "Rodlix/WeaponConfig", fileName = "WeaponConfig", order = 6)]
     internal class WeaponConfig : ScriptableObject
     {
-        [Header("Информация о оружии")]
-        [Space(5)]
+        [Header("Информация о оружии"), Space(5)]
 
         [Tooltip("Префаб орудия")]
         [SerializeField] private Weapon _weapon;
         [Tooltip("Префаб снаряда")]
         [SerializeField] private GameObject _projectile;
         [Tooltip("Скорость перезарядки")]
-        [SerializeField] private int _rateOfFire = 3;
+        [SerializeField, Range(0, 50)] private int _rateOfFire = 3;
 
         /// <summary>
         /// Скорость перезарядки

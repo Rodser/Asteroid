@@ -5,19 +5,21 @@ namespace Rodlix.Asteroid
     internal class Ship : MonoBehaviour, IAircraft
     {
         [SerializeField] private Transform _pointWeapon;
-        [SerializeField] private float _maxSpeed = 1f;
-        [SerializeField] private float _speedRotation = 1f;
-        [SerializeField] private float _acceleration = 1f;
-
+       
         private Rigidbody _playerRigidbody;
         private Vector3 _impulseMovement;
-        private float _rotation;
         private Vector3 _lastPosition;
         private Vector3 _currentPosition;
-        private float _speed;
+        private float _acceleration = 0f;
+        private float _maxSpeed = 0f;
+        private float _speedRotation = 0f;
+        private float _rotation = 0f;
+        private float _speed = 0f;
 
-        public Weapon Weapon { get; private set; }
         public Transform PointWeapon => _pointWeapon;
+        public Weapon Weapon { get; private set; }
+        public Wing Wing { get; private set; }
+
 
         private void Start()
         {
@@ -47,16 +49,23 @@ namespace Rodlix.Asteroid
             transform.Rotate(Vector3.forward, _rotation * Time.deltaTime);
         }
 
-        internal void SetParameters(float maxSpeed, float acceleration, float speedRotation)
+        internal void Modify(float maxSpeed, float acceleration, float speedRotation)
         {
-            _speedRotation = speedRotation;
-            _maxSpeed = maxSpeed;
-            _acceleration = acceleration;
+            _speedRotation += speedRotation;
+            _maxSpeed += maxSpeed;
+            _acceleration += acceleration;
         }
 
-        internal void Equip(Weapon weapon)
+        internal void Equip<T>(T equipment) where T : MonoBehaviour
         {
-            Weapon = weapon;
+            if (typeof(T) == typeof(Weapon))
+            {
+                Weapon = equipment as Weapon;
+            }
+            else if(typeof(T) == typeof(Wing))
+            {
+                Wing = equipment as Wing;
+            }
         }
     }
 }

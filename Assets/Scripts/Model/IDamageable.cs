@@ -4,9 +4,4 @@
     {
         void TakeDamage(int damage);
     }
-    
-    public interface IDamaging
-    {
-        int MakeDamage();
-    }
 }

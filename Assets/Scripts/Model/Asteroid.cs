@@ -2,7 +2,8 @@
 
 namespace Rodlix.Asteroid
 {
-    public class Asteroid : MonoBehaviour
+    [RequireComponent(typeof(Offscreen), typeof(Rigidbody))]
+    public class Asteroid : MonoBehaviour, IAircraft
     {
         [SerializeField] private float _minSpeed = 2f;
         [SerializeField] private float _maxSpeed = 6f;
@@ -22,6 +23,11 @@ namespace Rodlix.Asteroid
         private void Move()
         {
             transform.position += _speed * Time.deltaTime * transform.up;
+        }
+
+        public void Die()
+        {
+             Destroy(gameObject);
         }
     }
 }

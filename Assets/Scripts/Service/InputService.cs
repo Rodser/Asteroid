@@ -19,7 +19,6 @@ namespace Rodlix.Asteroid
 
             Fire = Input.GetKey(KeyCode.Space);
             Pause = Input.GetKey(KeyCode.Pause);
-            Debug.Log($"{Fire}, {Move}, {Rotate}");
         }
     }
 }

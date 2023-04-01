@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WingConfig
   m_EditorClassIdentifier: 
   _wing: {fileID: 1104168048046035398, guid: c1d237ec941c00545b330c5fc46673b5, type: 3}
-  _acceleration: 25
+  _acceleration: 55
   _maxSpeed: 1
   _speedRotation: 12

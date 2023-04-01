@@ -5,10 +5,10 @@ namespace Rodlix.Asteroid
     internal class WeaponBuilder 
     {
         private readonly WeaponConfig _weaponData;
-        private readonly IAircraft _aircraft;
+        private readonly Ship _aircraft;
         private Weapon _weapon;
 
-        public WeaponBuilder(WeaponConfig weaponData, IAircraft aircraft)
+        public WeaponBuilder(WeaponConfig weaponData, Ship aircraft)
         {
             _weaponData = weaponData;
             _aircraft = aircraft;
@@ -17,7 +17,7 @@ namespace Rodlix.Asteroid
         public WeaponBuilder BuildBody()
         {
             _weapon = Object.Instantiate(_weaponData.Weapon, _aircraft.PointWeapon);
-            _weapon.Charge(_weaponData.Projectile, _weaponData.RateOfFire);
+            _weapon.Charge(_weaponData.Projectile, _weaponData.RateOfFire, _weaponData.Damage, _aircraft);
             return this;
         }
 

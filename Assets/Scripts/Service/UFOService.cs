@@ -4,7 +4,7 @@ namespace Rodlix.Asteroid
 {
     internal class UFOService : IService
     {
-        private Ship _ufo;
+        private readonly Ship _ufo;
 
         public UFOService(Ship ufo)
         {
@@ -13,6 +13,9 @@ namespace Rodlix.Asteroid
 
         public void Tick()
         {
+            if(_ufo.IsDead)
+                return;
+            
             _ufo.transform.Rotate(Vector3.forward, 25 * Time.deltaTime);
         }
     }

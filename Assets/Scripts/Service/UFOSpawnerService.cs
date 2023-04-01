@@ -5,7 +5,7 @@ namespace Rodlix.Asteroid
 {
     internal class UFOSpawnerService : IService
     {
-        private ShipConfig _ufoData;
+        private readonly ShipConfig _ufoData;
         private readonly IServiceLocator<IService> _services;
 
         public UFOSpawnerService(ShipConfig ufoData, IServiceLocator<IService> _services)
@@ -24,9 +24,7 @@ namespace Rodlix.Asteroid
             await Task.Delay(3000);
 
             if(_services.Get<UFOService>() != null)
-            {
                 return;
-            }
 
             var builder = new ShipBuilder(_ufoData);
             var ufo = builder

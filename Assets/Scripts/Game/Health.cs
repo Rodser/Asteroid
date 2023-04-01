@@ -4,15 +4,13 @@ namespace Rodlix.Asteroid
 {
     public class Health : MonoBehaviour, IDamageable
     {
-        public int _health = 3;
+        private int _health = 3;
+        private IAircraft _aircraft;
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.GetComponent<Health>() is null)
-                  return;
-
-            _health--;
-            CheckHealth();
+            var health = collision.gameObject.GetComponent<Health>();
+            health?.TakeDamage(1);
         }
 
         public void TakeDamage(int damage)
@@ -25,13 +23,18 @@ namespace Rodlix.Asteroid
         {
             if(_health <= 0)
             {
-                Dead();
+                Die();
             }
         }
 
-        private void Dead()
+        private void Die()
         {
-            Destroy(gameObject);
+            _aircraft?.Die();
+        }
+
+        internal void SetParent(IAircraft aircraft)
+        {
+            _aircraft = aircraft;
         }
     }
 }

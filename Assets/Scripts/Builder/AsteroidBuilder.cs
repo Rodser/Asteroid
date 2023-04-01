@@ -23,7 +23,8 @@ namespace Rodlix.Asteroid
             {
                 var position = GetPosition();
                 var direction = GetDirection();
-                Object.Instantiate(asteroid, position, direction);
+                var astr = Object.Instantiate(asteroid, position, direction);
+                astr.gameObject.AddComponent<Health>().SetParent(astr);
             }
             return this;
         }

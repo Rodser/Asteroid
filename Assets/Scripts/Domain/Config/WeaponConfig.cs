@@ -16,11 +16,17 @@ namespace Rodlix.Asteroid
         [SerializeField] private GameObject _projectile;
         [Tooltip("Скорость перезарядки")]
         [SerializeField, Range(0, 50)] private int _rateOfFire = 3;
+        [Tooltip("Урон")]
+        [SerializeField, Range(0, 50)] private int _damage = 2;
 
         /// <summary>
         /// Скорость перезарядки
         /// </summary>
         internal int RateOfFire => _rateOfFire;
+        /// <summary>
+        /// Урон
+        /// </summary>
+        internal int Damage => _damage;
         /// <summary>
         /// Префаб снаряда
         /// </summary>

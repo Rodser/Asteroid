@@ -42,7 +42,7 @@ namespace Rodlix.Asteroid
         private void RegisterAllServices()
         {
             _inputService = _services.Register(new InputService());
-            _services.Register(new WeaponPlayerService(_inputService, _player.Weapon));
+            _services.Register(new WeaponPlayerService(_inputService, _player));
             _services.Register(new PlayerService(_inputService, _player));
             _services.Register(new UFOSpawnerService(_configContainer.UFOConfig, _services));
         }

@@ -16,7 +16,7 @@ namespace Rodlix.Asteroid
         public ShipBuilder BuildBody(Vector3 position, Quaternion rotation)
         {
             _ship = Object.Instantiate(_shipConfig.Ship, position, rotation);
-            _ship.AddComponent<Health>();
+            _ship.AddComponent<Health>().SetParent(_ship);
             _ship.Modify(_shipConfig.MaxSpeed, _shipConfig.Acceleration, _shipConfig.SpeedRotation);  
             return this;
         }
